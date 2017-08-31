@@ -1,0 +1,2 @@
+# lampkicking
+Technical Java test
