@@ -22,7 +22,8 @@ Using a Cartesian coordinate system, the top bottom left corner of the room is (
 width and M the height. The room will be rectangular, no obstacles (except the room walls), no doors.
 
 Placing the hoover on a patch of dirt ("hoovering") removes the patch of dirt and it is considered cleaned. The hoover is always on - 
-there is no need to enable it. Driving into a wall has no effect (the robot skids in place).
+there is no need to enable it. Driving into a wall has no effect (the robot skids in place). The current position won't be considered to
+be cleaned, unless the robot passes over that same position during the simulation.
 
 ## Simulation webservice endpoint
 
@@ -60,7 +61,7 @@ Example:
 Service returns as a json payload. The format to expect is:
 
 * coords - [X,Y] robot final position
-* patches - number of locations left with dirt patches 
+* patches - number of locations left with dirt patches
 
 Example:
 

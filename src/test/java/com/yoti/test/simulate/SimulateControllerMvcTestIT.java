@@ -1,6 +1,7 @@
-package com.yoti.test;
+package com.yoti.test.simulate;
 
-import static org.mockito.BDDMockito.given;
+import static com.yoti.test.entities.SimulationInputBuilder.createEmptySimulationInput;
+import static org.mockito.BDDMockito.willReturn;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.yoti.test.entities.Coordinates;
 import com.yoti.test.entities.SimulationInput;
 import com.yoti.test.entities.SimulationOutput;
+import com.yoti.test.util.MvcTester;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(SimulateController.class)
@@ -22,10 +25,11 @@ public class SimulateControllerMvcTestIT extends MvcTester {
 	
 	@Test
 	public void simulate_validRequestBody_returnsCreated() throws Exception {
-		SimulationInput input = new SimulationInput();
-		ResponseEntity<SimulationOutput> response = new ResponseEntity<>(new SimulationOutput(), HttpStatus.CREATED); 
 		
-		given(simulateController.simulate(input)).willReturn(response);
+		SimulationInput input = createEmptySimulationInput();
+		ResponseEntity<?> response = new ResponseEntity<>(new SimulationOutput(new Coordinates(0, 0), 0), HttpStatus.CREATED); 
+		willReturn(response).given(simulateController).simulate(input);
+		
 		
 		executePostTest("/api/v1/simulate", HttpStatus.CREATED, input);
 	}
