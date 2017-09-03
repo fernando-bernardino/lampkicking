@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: Yoti - Lampkicking
+  data:
+    mongodb:
+      uri: mongodb://yoti:test@localhost:27017/test
+    

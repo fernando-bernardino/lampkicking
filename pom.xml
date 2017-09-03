@@ -22,7 +22,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.6.RELEASE</version>
+		<version>1.4.0.RELEASE</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -38,31 +38,31 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<skipTests>${unit-tests.skip}</skipTests>
-					<excludes> 
-                		<exclude>${integration-tests.pattern}</exclude> 
-              		</excludes> 
+					<excludes>
+						<exclude>${integration-tests.pattern}</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
-			
-			<plugin> 
-        		<artifactId>maven-failsafe-plugin</artifactId> 
+
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
 				<configuration>
-					<skipTests>${integration-tests.skip}</skipTests> 
+					<skipTests>${integration-tests.skip}</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<profiles>
 		<profile>
 			<id>integration</id>
@@ -83,11 +83,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
 		
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-async</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+
 		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>

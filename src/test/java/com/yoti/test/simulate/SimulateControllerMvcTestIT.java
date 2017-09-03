@@ -1,6 +1,6 @@
 package com.yoti.test.simulate;
 
-import static com.yoti.test.entities.SimulationInputBuilder.createEmptySimulationInput;
+import static com.yoti.test.entities.SimulationObjectsBuilder.createEmptySimulationInput;
 import static org.mockito.BDDMockito.willReturn;
 
 import org.junit.Test;

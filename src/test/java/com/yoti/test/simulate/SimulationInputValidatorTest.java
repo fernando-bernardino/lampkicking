@@ -1,6 +1,6 @@
 package com.yoti.test.simulate;
 
-import static com.yoti.test.entities.SimulationInputBuilder.createSimulationInput;
+import static com.yoti.test.entities.SimulationObjectsBuilder.createSimulationInput;
 
 import org.junit.Before;
 import org.junit.Rule;

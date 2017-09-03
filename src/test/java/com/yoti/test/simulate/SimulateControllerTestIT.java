@@ -1,6 +1,6 @@
 package com.yoti.test.simulate;
 
-import static com.yoti.test.entities.SimulationInputBuilder.createSimulationInput;
+import static com.yoti.test.entities.SimulationObjectsBuilder.createSimulationInput;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
